@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/history"
+        android:title="History" />
+    <item
+        android:id="@+id/ChooseTheme"
+        android:title="Choose Theme" />
+    <item
+        android:id="@+id/sendFb"
+        android:title="Send feedback" />
+    <item
+        android:id="@+id/help"
+        android:title="Help" />
+</menu>
