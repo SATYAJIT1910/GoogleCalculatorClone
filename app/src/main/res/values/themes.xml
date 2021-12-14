@@ -13,9 +13,9 @@
     </style>
         <!-- Customize your theme here. -->
     <style name="myButton">
-        <item name="android:layout_width">85dp</item>
-        <item name="android:layout_height">90dp</item>
-        <item name="android:layout_margin" >7sp</item>
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">85dp</item>
+        <item name="android:layout_margin" >5sp</item>
         <item name="android:backgroundTint">#292A2E</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textSize">27sp</item>
