@@ -9,13 +9,17 @@
 
     <TableLayout
         android:id="@+id/tableLayout"
-        android:layout_width="406dp"
-        android:layout_height="497dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="404dp"
+        android:layout_height="424dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="72dp"
+        android:scaleX="1.1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <TableRow
             android:layout_width="match_parent"
@@ -26,7 +30,7 @@
                 android:id="@+id/AC"
                 style="@style/myButton"
                 android:backgroundTint="#c3eed0"
-                android:onClick="myKeyPressedMethod"
+                android:onClick="clear"
                 android:text="AC"
                 android:textColor="#000000"
                 app:cornerRadius="50dp" />
@@ -35,7 +39,6 @@
                 android:id="@+id/brackets"
                 style="@style/myButton"
                 android:backgroundTint="#5cb3f2"
-                android:onClick="myKeyPressedMethod"
                 android:text="( )"
                 android:textColor="#000000"
                 app:cornerRadius="50dp" />
@@ -51,9 +54,9 @@
 
             <Button
                 android:id="@+id/div"
-                android:layout_width="85dp"
-                android:layout_height="90dp"
-                android:layout_margin="7sp"
+                android:layout_width="70dp"
+                android:layout_height="75dp"
+                android:layout_margin="3sp"
                 android:backgroundTint="#5cb3f2"
                 android:onClick="myKeyPressedMethod"
                 android:text="÷"
@@ -90,9 +93,9 @@
 
             <Button
                 android:id="@+id/mul"
-                android:layout_width="85dp"
-                android:layout_height="90dp"
-                android:layout_margin="7sp"
+                android:layout_width="70dp"
+                android:layout_height="75dp"
+                android:layout_margin="3sp"
                 android:backgroundTint="#5cb3f2"
                 android:onClick="myKeyPressedMethod"
                 android:text="x"
@@ -129,9 +132,9 @@
 
             <Button
                 android:id="@+id/sub"
-                android:layout_width="85dp"
-                android:layout_height="90dp"
-                android:layout_margin="7sp"
+                android:layout_width="70dp"
+                android:layout_height="75dp"
+                android:layout_margin="3sp"
                 android:backgroundTint="#5cb3f2"
                 android:onClick="myKeyPressedMethod"
                 android:text="-"
@@ -168,9 +171,9 @@
 
             <Button
                 android:id="@+id/add"
-                android:layout_width="85dp"
-                android:layout_height="90dp"
-                android:layout_margin="7sp"
+                android:layout_width="70dp"
+                android:layout_height="75dp"
+                android:layout_margin="3sp"
                 android:backgroundTint="#5cb3f2"
                 android:onClick="myKeyPressedMethod"
                 android:text="+"
@@ -209,11 +212,10 @@
 
             <Button
                 android:id="@+id/submit"
-                android:layout_width="85dp"
-                android:layout_height="90dp"
-                android:layout_margin="7sp"
+                android:layout_width="70dp"
+                android:layout_height="75dp"
+                android:layout_margin="3sp"
                 android:backgroundTint="#5cb3f2"
-                android:onClick="myKeyPressedMethod"
                 android:text="="
                 android:textColor="#000000"
                 android:textSize="27sp"
@@ -224,20 +226,20 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="445dp"
-        android:layout_height="230dp"
-        android:layout_marginBottom="95dp"
+        android:layout_width="458dp"
+        android:layout_height="187dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="18dp"
         android:background="@drawable/rounded_corner"
-        android:padding="25dp"
-        android:text="0000000"
+        android:padding="50dp"
+        android:text=""
         android:textAlignment="viewEnd"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textIsSelectable="true"
-        android:textSize="50sp"
+        android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

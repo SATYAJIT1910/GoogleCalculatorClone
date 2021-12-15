@@ -12,7 +12,10 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButtonToggleGroup;
-
+/**
+ * @author Satyajit Ghosh
+ * @since 15-12-2021
+ * */
 public class MainActivity extends AppCompatActivity {
     private String myResultStr="";
     private Button num0;
@@ -72,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
         myResultStr=myResultStr.substring(0,myResultStr.length()-1);
         text.setText(myResultStr);
         }
+    }
+    public void clear(View view){
+        Button b=(Button) view;
+        myResultStr="";
+        text.setText(myResultStr);
     }
 
 }
