@@ -10,8 +10,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import org.mariuszgromada.math.mxparser.*;
+
 
 import com.google.android.material.button.MaterialButtonToggleGroup;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Stack;
+
 /**
  * @author Satyajit Ghosh
  * @since 15-12-2021
@@ -57,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
        TableLayout t=findViewById(R.id.tableLayout);
         //
 
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -65,11 +73,35 @@ public class MainActivity extends AppCompatActivity {
     }
     public void myKeyPressedMethod(View view){
         Button b=(Button)view;
-        myResultStr+=  b.getText().toString();
+
+        switch (view.getId()){
+            case R.id.div:
+                myResultStr+="/";
+                break;
+            case R.id.mul:
+                myResultStr+="*";
+                break;
+            case R.id.brackets:
+                if(validParen(myResultStr)){
+                    myResultStr+="(";
+                }
+                else{
+                    if(myResultStr.contains("(")){
+
+                    myResultStr+=")";
+                    }
+                    else{
+                        myResultStr+="(";
+                    }
+                }
+                break;
+            default:
+                myResultStr+= b.getText().toString();
+        }
+
         text.setText(myResultStr);
     }
     public void backspaceMethod(View view){
-        Button b=(Button) view;
         if(myResultStr.length()>=1){
 
         myResultStr=myResultStr.substring(0,myResultStr.length()-1);
@@ -77,9 +109,43 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void clear(View view){
-        Button b=(Button) view;
         myResultStr="";
         text.setText(myResultStr);
     }
+    public void onEqualPress(View view){
+
+        Expression e1=new Expression(myResultStr);
+        text.setText(Double.toString(e1.calculate()));
+    }
+
+    public boolean validParen(String input) {
+
+        if (input.isEmpty()) {
+            return true;
+        } else {
+            Stack<Character> stack = new Stack<>();
+            for (int i = 0; i < input.length(); i++) {
+                char current = input.charAt(i);
+                if (current == '(' || current == '[' || current == '{') {
+                    stack.push(current);
+                } else {
+                    if(stack.isEmpty()) {
+                        return false;
+                    }
+                    char peekChar = stack.peek();
+                    if ((current == ')' && peekChar != '(')
+                            || (current == '}' && peekChar != '{')
+                            || (current == ']' && peekChar != '[')) {
+                        return false;  // for a valid input, a close brackets must have an open brackets
+                    } else {
+                        stack.pop();
+                    }
+                }
+            }
+            return true;
+        }
+    }
+
+
 
 }

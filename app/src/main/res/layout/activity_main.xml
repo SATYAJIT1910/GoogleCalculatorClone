@@ -40,6 +40,7 @@
                 style="@style/myButton"
                 android:backgroundTint="#5cb3f2"
                 android:text="( )"
+                android:onClick="myKeyPressedMethod"
                 android:textColor="#000000"
                 app:cornerRadius="50dp" />
 
@@ -218,6 +219,7 @@
                 android:backgroundTint="#5cb3f2"
                 android:text="="
                 android:textColor="#000000"
+                android:onClick="onEqualPress"
                 android:textSize="27sp"
                 app:cornerRadius="50dp" />
         </TableRow>
