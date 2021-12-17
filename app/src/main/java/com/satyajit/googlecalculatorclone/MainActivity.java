@@ -1,22 +1,25 @@
 package com.satyajit.googlecalculatorclone;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import org.mariuszgromada.math.mxparser.*;
 
 
 import com.google.android.material.button.MaterialButtonToggleGroup;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
 import java.util.Stack;
 
 /**
@@ -63,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
        text=findViewById(R.id.textView);
        TableLayout t=findViewById(R.id.tableLayout);
         //
-
+        Toast.makeText(getApplicationContext(),"Designed by Satyajit Ghosh",Toast.LENGTH_SHORT).show();
 
     }
     @Override
@@ -71,6 +74,20 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main,menu);
         return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.sendFb:
+                composeEmail(new String[]{"satyajit.ghosh@outlook.in"},"FeedBack on App");
+                break;
+            default:
+                Toast.makeText(getApplicationContext(),"Not implemented Yet",Toast.LENGTH_SHORT).show();
+        }
+        return true;
+    }
+
     public void myKeyPressedMethod(View view){
         Button b=(Button)view;
 
@@ -136,13 +153,22 @@ public class MainActivity extends AppCompatActivity {
                     if ((current == ')' && peekChar != '(')
                             || (current == '}' && peekChar != '{')
                             || (current == ']' && peekChar != '[')) {
-                        return false;  // for a valid input, a close brackets must have an open brackets
+                        return false;
                     } else {
                         stack.pop();
                     }
                 }
             }
             return true;
+        }
+    }
+    public void composeEmail(String[] addresses, String subject) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("*/*");
+        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
         }
     }
 
